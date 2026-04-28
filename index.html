@@ -100,27 +100,17 @@
             display: flex;
             align-items: center;
             justify-content: space-between;
-            height: 64px;
+            height: 80px;
         }
 
         .nav-logo {
-            font-family: var(--font-serif);
-            font-size: 1.5rem;
-            font-weight: 700;
-            color: var(--black);
             text-decoration: none;
-            letter-spacing: 0.05em;
+            display: flex;
+            align-items: center;
         }
 
-        .nav-logo span {
-            font-weight: 400;
-            font-size: 0.65em;
-            color: var(--gray);
-            display: block;
-            letter-spacing: 0.15em;
-            text-transform: uppercase;
-            font-family: var(--font-sans);
-            margin-top: -2px;
+        .nav-logo img {
+            height: 60px;
         }
 
         .nav-links {
@@ -1027,8 +1017,7 @@
     <nav class="nav" id="nav">
         <div class="nav-inner">
             <a href="#" class="nav-logo">
-                <img src="./logo-nobg.png" alt="NWC" style="height:36px;vertical-align:middle;margin-right:8px;">
-                <span>Now & Wow Closet</span>
+                <img src="./logo-nobg.png" alt="Now & Wow Closet">
             </a>
             <ul class="nav-links">
                 <li><a href="#collection" data-en="Collection" data-tl="Koleksyon">Collection</a></li>
