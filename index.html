@@ -269,6 +269,48 @@
             overflow: hidden;
         }
 
+        /* Hero background slideshow */
+        .hero-slideshow {
+            position: absolute;
+            top: 0; left: 0; right: 0; bottom: 0;
+            z-index: 0;
+        }
+        .hero-slideshow img {
+            position: absolute;
+            top: 0; left: 0;
+            width: 100%; height: 100%;
+            object-fit: cover;
+            opacity: 0;
+            animation: heroSlide 24s ease-in-out infinite;
+        }
+        .hero-slideshow img:nth-child(1) { animation-delay: 0s; }
+        .hero-slideshow img:nth-child(2) { animation-delay: 4s; }
+        .hero-slideshow img:nth-child(3) { animation-delay: 8s; }
+        .hero-slideshow img:nth-child(4) { animation-delay: 12s; }
+        .hero-slideshow img:nth-child(5) { animation-delay: 16s; }
+        .hero-slideshow img:nth-child(6) { animation-delay: 20s; }
+        @keyframes heroSlide {
+            0% { opacity: 0; transform: scale(1.05); }
+            4% { opacity: 1; transform: scale(1); }
+            16% { opacity: 1; transform: scale(1.02); }
+            20% { opacity: 0; transform: scale(1.05); }
+            100% { opacity: 0; }
+        }
+        .hero-slideshow-overlay {
+            position: absolute;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background: rgba(181, 184, 143, 0.75);
+            z-index: 1;
+        }
+        .hero > *:not(.hero-slideshow):not(.hero-slideshow ~ *) {
+            position: relative;
+            z-index: 2;
+        }
+        .hero-particles, .hero-monogram, .hero-tagline, .hero-subtitle, .hero-cta, .hero-scroll {
+            position: relative;
+            z-index: 2;
+        }
+
         .hero::before {
             content: '';
             position: absolute;
@@ -1012,6 +1054,15 @@
 
     <!-- Hero -->
     <section class="hero">
+        <div class="hero-slideshow">
+            <img src="./product-1.jpg" alt="">
+            <img src="./product-2.jpg" alt="">
+            <img src="./product-3.jpg" alt="">
+            <img src="./product-4.jpg" alt="">
+            <img src="./product-5.jpg" alt="">
+            <img src="./product-6.jpg" alt="">
+        </div>
+        <div class="hero-slideshow-overlay"></div>
         <div class="hero-particles" id="heroParticles"></div>
         <div class="hero-monogram">NWC</div>
         <h1 class="hero-tagline" data-en="Effortless Style, Everyday Comfort" data-tl="Istilo na Walang Kahirap-hirap, Kaginhawaan sa Araw-araw">Effortless Style, Everyday Comfort</h1>
