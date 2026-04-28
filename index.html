@@ -5,6 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Now & Wow Closet — Effortless Style, Everyday Comfort</title>
     <meta name="description" content="Now & Wow Closet (NWC) by Caren Kay R. Chao — women's casual fashion from Zhongli, Taiwan. Cotton coordinates, silky skirts, classic trousers & comfy everyday outfits.">
+    <meta name="description" lang="tl" content="Now & Wow Closet (NWC) ni Caren Kay R. Chao — casual fashion para sa kababaihan mula Zhongli, Taiwan. Cotton coordinates, silky skirts, classic trousers at komportableng pang-araw-araw na outfit.">
+    <link rel="alternate" hreflang="en" href="https://nownowcloset.com/">
+    <link rel="alternate" hreflang="tl" href="https://nownowcloset.com/?lang=tl">
+    <link rel="alternate" hreflang="x-default" href="https://nownowcloset.com/">
     <meta property="og:title" content="Now & Wow Closet — Effortless Style, Everyday Comfort">
     <meta property="og:description" content="Women's casual fashion — comfortable, accessible, and confident. Based in Zhongli, Taiwan.">
     <meta property="og:image" content="./logo.jpg">
@@ -123,6 +127,7 @@
             display: flex;
             gap: 36px;
             list-style: none;
+            align-items: center;
         }
 
         .nav-links a {
@@ -154,6 +159,36 @@
 
         .nav-links a:hover::after {
             width: 100%;
+        }
+
+        /* ===== LANGUAGE TOGGLE ===== */
+        .lang-toggle {
+            font-size: 0.8rem;
+            font-weight: 500;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            color: var(--black-light);
+            background: none;
+            border: 1.5px solid var(--sage);
+            border-radius: 4px;
+            padding: 4px 10px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-family: var(--font-sans);
+        }
+
+        .lang-toggle:hover {
+            background: var(--sage);
+            color: var(--white);
+        }
+
+        .lang-toggle .active-lang {
+            font-weight: 700;
+            color: var(--sage-dark);
+        }
+
+        .lang-toggle:hover .active-lang {
+            color: var(--white);
         }
 
         .hamburger {
@@ -213,6 +248,11 @@
             color: var(--black);
             text-decoration: none;
             letter-spacing: 0.05em;
+        }
+
+        .mobile-menu .lang-toggle {
+            font-size: 1rem;
+            padding: 8px 20px;
         }
 
         /* ===== HERO ===== */
@@ -723,9 +763,10 @@
                 <span>Now & Wow Closet</span>
             </a>
             <ul class="nav-links">
-                <li><a href="#collection">Collection</a></li>
-                <li><a href="#about">About</a></li>
-                <li><a href="#contact">Contact</a></li>
+                <li><a href="#collection" data-en="Collection" data-tl="Koleksyon">Collection</a></li>
+                <li><a href="#about" data-en="About" data-tl="Tungkol">About</a></li>
+                <li><a href="#contact" data-en="Contact" data-tl="Kontakin Kami">Contact</a></li>
+                <li><button class="lang-toggle" id="langToggle" onclick="toggleLang()"><span class="active-lang">EN</span> | TL</button></li>
             </ul>
             <button class="hamburger" id="hamburger" aria-label="Menu">
                 <span></span>
@@ -737,19 +778,20 @@
 
     <!-- Mobile Menu -->
     <div class="mobile-menu" id="mobileMenu">
-        <a href="#collection" onclick="closeMobile()">Collection</a>
-        <a href="#about" onclick="closeMobile()">About</a>
-        <a href="#contact" onclick="closeMobile()">Contact</a>
+        <a href="#collection" onclick="closeMobile()" data-en="Collection" data-tl="Koleksyon">Collection</a>
+        <a href="#about" onclick="closeMobile()" data-en="About" data-tl="Tungkol">About</a>
+        <a href="#contact" onclick="closeMobile()" data-en="Contact" data-tl="Kontakin Kami">Contact</a>
+        <button class="lang-toggle" id="langToggleMobile" onclick="toggleLang()"><span class="active-lang">EN</span> | TL</button>
     </div>
 
     <!-- Hero -->
     <section class="hero">
         <div class="hero-monogram">NWC</div>
-        <h1 class="hero-tagline">Effortless Style, Everyday Comfort</h1>
-        <p class="hero-subtitle">By Caren Kay R. Chao</p>
-        <a href="#collection" class="hero-cta">View Collection</a>
+        <h1 class="hero-tagline" data-en="Effortless Style, Everyday Comfort" data-tl="Istilo na Walang Kahirap-hirap, Kaginhawaan sa Araw-araw">Effortless Style, Everyday Comfort</h1>
+        <p class="hero-subtitle" data-en="By Caren Kay R. Chao" data-tl="By Caren Kay R. Chao">By Caren Kay R. Chao</p>
+        <a href="#collection" class="hero-cta" data-en="View Collection" data-tl="Tingnan ang Koleksyon">View Collection</a>
         <div class="hero-scroll">
-            <span>Scroll</span>
+            <span data-en="Scroll" data-tl="Mag-scroll">Scroll</span>
             <div class="line"></div>
         </div>
     </section>
@@ -757,17 +799,17 @@
     <!-- Collection -->
     <section class="section collection" id="collection">
         <div class="section-inner">
-            <p class="section-label">Our Collection</p>
-            <h2 class="section-title">Curated for Comfort</h2>
+            <p class="section-label" data-en="Our Collection" data-tl="Ang Aming Koleksyon">Our Collection</p>
+            <h2 class="section-title" data-en="Curated for Comfort" data-tl="Pinili para sa Kaginhawaan">Curated for Comfort</h2>
             <div class="product-grid">
 
                 <div class="product-card" data-animate>
                     <div class="product-image-wrap">
                         <img src="./product-1.jpg" alt="Pure Cotton Comfy Coordinates" loading="lazy">
-                        <span class="badge">New</span>
+                        <span class="badge" data-en="New" data-tl="Bago">New</span>
                     </div>
                     <h3 class="product-name">Pure Cotton Comfy Coordinates</h3>
-                    <p class="product-size">Freesize &mdash; fits up to XL</p>
+                    <p class="product-size" data-en="Freesize &mdash; fits up to XL" data-tl="Freesize &mdash; kasya hanggang XL">Freesize &mdash; fits up to XL</p>
                 </div>
 
                 <div class="product-card" data-animate>
@@ -775,7 +817,7 @@
                         <img src="./product-2.jpg" alt="Denim Corset Top & Wide Pants" loading="lazy">
                     </div>
                     <h3 class="product-name">Denim Corset Top & Wide Pants</h3>
-                    <p class="product-size">Coordinated set</p>
+                    <p class="product-size" data-en="Coordinated set" data-tl="Magkatugmang set">Coordinated set</p>
                 </div>
 
                 <div class="product-card" data-animate>
@@ -783,7 +825,7 @@
                         <img src="./product-3.jpg" alt="Silky Stud Skirt — Cream" loading="lazy">
                     </div>
                     <h3 class="product-name">Silky Stud Skirt &mdash; Cream</h3>
-                    <p class="product-size">Freesize &mdash; fits up to L</p>
+                    <p class="product-size" data-en="Freesize &mdash; fits up to L" data-tl="Freesize &mdash; kasya hanggang L">Freesize &mdash; fits up to L</p>
                 </div>
 
                 <div class="product-card" data-animate>
@@ -791,7 +833,7 @@
                         <img src="./product-4.jpg" alt="Classic Trouser Fit" loading="lazy">
                     </div>
                     <h3 class="product-name">Classic Trouser Fit</h3>
-                    <p class="product-size">S: 24-25 &bull; M: 26-27 &bull; L: 28-29 &bull; XL: 30-31</p>
+                    <p class="product-size" data-en="S: 24-25 &bull; M: 26-27 &bull; L: 28-29 &bull; XL: 30-31" data-tl="Gabay sa Sukat &mdash; S: 24-25 &bull; M: 26-27 &bull; L: 28-29 &bull; XL: 30-31">S: 24-25 &bull; M: 26-27 &bull; L: 28-29 &bull; XL: 30-31</p>
                 </div>
 
                 <div class="product-card" data-animate>
@@ -799,7 +841,7 @@
                         <img src="./product-5.jpg" alt="Soft Denim Snap Button Top & Skort Set" loading="lazy">
                     </div>
                     <h3 class="product-name">Soft Denim Snap Button Top & Skort Set</h3>
-                    <p class="product-size">Freesize &mdash; fits up to L</p>
+                    <p class="product-size" data-en="Freesize &mdash; fits up to L" data-tl="Freesize &mdash; kasya hanggang L">Freesize &mdash; fits up to L</p>
                 </div>
 
                 <div class="product-card" data-animate>
@@ -807,7 +849,7 @@
                         <img src="./product-6.jpg" alt="Comfy Tita Outfit — Blue" loading="lazy">
                     </div>
                     <h3 class="product-name">Comfy Tita Outfit &mdash; Blue</h3>
-                    <p class="product-size">Freesize &mdash; fits up to XL</p>
+                    <p class="product-size" data-en="Freesize &mdash; fits up to XL" data-tl="Freesize &mdash; kasya hanggang XL">Freesize &mdash; fits up to XL</p>
                 </div>
 
             </div>
@@ -819,23 +861,23 @@
         <div class="features-inner">
             <div class="feature-item">
                 <div class="feature-icon">&#9752;</div>
-                <div class="feature-title">Comfort First</div>
-                <div class="feature-desc">Soft, breathable fabrics</div>
+                <div class="feature-title" data-en="Comfort First" data-tl="Kaginhawaan Muna">Comfort First</div>
+                <div class="feature-desc" data-en="Soft, breathable fabrics" data-tl="Malambot, mahanging tela">Soft, breathable fabrics</div>
             </div>
             <div class="feature-item">
                 <div class="feature-icon">&#10023;</div>
-                <div class="feature-title">Freesize</div>
-                <div class="feature-desc">Fits S through XL</div>
+                <div class="feature-title" data-en="Freesize" data-tl="Freesize">Freesize</div>
+                <div class="feature-desc" data-en="Fits S through XL" data-tl="Kasya mula S hanggang XL">Fits S through XL</div>
             </div>
             <div class="feature-item">
                 <div class="feature-icon">&#9825;</div>
-                <div class="feature-title">Everyday Style</div>
-                <div class="feature-desc">Casual chic for any occasion</div>
+                <div class="feature-title" data-en="Everyday Style" data-tl="Istilo sa Araw-araw">Everyday Style</div>
+                <div class="feature-desc" data-en="Casual chic for any occasion" data-tl="Casual chic para sa anumang okasyon">Casual chic for any occasion</div>
             </div>
             <div class="feature-item">
                 <div class="feature-icon">&#9733;</div>
-                <div class="feature-title">Curated</div>
-                <div class="feature-desc">Handpicked collections</div>
+                <div class="feature-title" data-en="Curated" data-tl="Pinili">Curated</div>
+                <div class="feature-desc" data-en="Handpicked collections" data-tl="Mga piniling koleksyon">Handpicked collections</div>
             </div>
         </div>
     </section>
@@ -848,11 +890,11 @@
                     <img src="./logo.jpg" alt="Now & Wow Closet">
                 </div>
                 <div class="about-text" data-animate>
-                    <p class="section-label">Our Story</p>
-                    <h2>Fashion That Feels<br>Like You</h2>
-                    <p>Now & Wow Closet was founded with a simple belief &mdash; fashion should be comfortable, accessible, and make you feel confident every day.</p>
-                    <p>Based in Zhongli, Taiwan, we curate everyday pieces that blend comfort with style. From pure cotton coordinates to silky skirts, every piece is chosen with care so you can look effortless without trying too hard.</p>
-                    <p>We believe getting dressed should be the easiest part of your day.</p>
+                    <p class="section-label" data-en="Our Story" data-tl="Ang Aming Kwento">Our Story</p>
+                    <h2 data-en="Fashion That Feels&lt;br&gt;Like You" data-tl="Fashion na Pakiramdam&lt;br&gt;ay Ikaw">Fashion That Feels<br>Like You</h2>
+                    <p data-en="Now &amp; Wow Closet was founded with a simple belief &mdash; fashion should be comfortable, accessible, and make you feel confident every day." data-tl="Ang Now &amp; Wow Closet ay itinatag sa simpleng paniniwala &mdash; ang fashion ay dapat komportable, abot-kamay, at nagbibigay ng kumpiyansa sa iyo araw-araw.">Now & Wow Closet was founded with a simple belief &mdash; fashion should be comfortable, accessible, and make you feel confident every day.</p>
+                    <p data-en="Based in Zhongli, Taiwan, we curate everyday pieces that blend comfort with style. From pure cotton coordinates to silky skirts, every piece is chosen with care so you can look effortless without trying too hard." data-tl="Nakabase sa Zhongli, Taiwan, pumipili kami ng mga pang-araw-araw na damit na pinagsasama ang kaginhawaan at istilo. Mula sa pure cotton coordinates hanggang silky skirts, bawat piraso ay maingat na pinili para magmukhang natural ka nang hindi masyadong nagsusumikap.">Based in Zhongli, Taiwan, we curate everyday pieces that blend comfort with style. From pure cotton coordinates to silky skirts, every piece is chosen with care so you can look effortless without trying too hard.</p>
+                    <p data-en="We believe getting dressed should be the easiest part of your day." data-tl="Naniniwala kami na ang pagbibihis ay dapat ang pinakamadaling bahagi ng iyong araw.">We believe getting dressed should be the easiest part of your day.</p>
                     <p class="signature">&mdash; Caren Kay R. Chao</p>
                 </div>
             </div>
@@ -862,19 +904,20 @@
     <!-- Contact -->
     <section class="section contact" id="contact">
         <div class="section-inner">
-            <p class="section-label">Get In Touch</p>
-            <h2 class="section-title">Shop With Us</h2>
-            <p class="contact-text">Browse our latest collection on Facebook or send us a message to inquire about sizing, availability, and orders. We'd love to help you find your perfect outfit.</p>
+            <p class="section-label" data-en="Get In Touch" data-tl="Makipag-ugnayan">Get In Touch</p>
+            <h2 class="section-title" data-en="Shop With Us" data-tl="Mamili sa Amin">Shop With Us</h2>
+            <p class="contact-text" data-en="Browse our latest collection on Facebook or send us a message to inquire about sizing, availability, and orders. We'd love to help you find your perfect outfit." data-tl="Tingnan ang aming pinakabagong koleksyon sa Facebook o mag-message sa amin para magtanong tungkol sa sukat, availability, at mga order. Gusto naming tulungan kang mahanap ang perpektong outfit mo.">Browse our latest collection on Facebook or send us a message to inquire about sizing, availability, and orders. We'd love to help you find your perfect outfit.</p>
             <div class="contact-buttons">
                 <a href="https://www.facebook.com/share/1CSXW5U2v5/?mibextid=wwXIfr" target="_blank" rel="noopener" class="btn btn-primary">
                     <svg viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
-                    Shop on Facebook
+                    <span data-en="Shop on Facebook" data-tl="Mamili sa Facebook">Shop on Facebook</span>
                 </a>
                 <a href="https://m.me/" target="_blank" rel="noopener" class="btn btn-outline">
                     <svg viewBox="0 0 24 24"><path d="M12 0C5.373 0 0 4.974 0 11.111c0 3.498 1.744 6.614 4.469 8.654V24l4.088-2.242c1.092.301 2.246.464 3.443.464 6.627 0 12-4.975 12-11.111C24 4.974 18.627 0 12 0zm1.191 14.963l-3.055-3.26-5.963 3.26L10.732 8.2l3.131 3.259L19.752 8.2l-6.561 6.763z"/></svg>
-                    Message Us
+                    <span data-en="Message Us" data-tl="Mag-message sa Amin">Message Us</span>
                 </a>
             </div>
+            <p class="contact-text" style="font-size: 0.85rem; margin-bottom: 8px;" data-en="Follow us" data-tl="Sundan kami">Follow us</p>
             <div class="social-links">
                 <a href="https://www.facebook.com/share/1CSXW5U2v5/?mibextid=wwXIfr" target="_blank" rel="noopener" aria-label="Facebook">
                     <svg viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
@@ -892,14 +935,57 @@
             <div class="footer-logo">NOW & WOW CLOSET</div>
             <p>By Caren Kay R. Chao</p>
             <div class="divider"></div>
-            <p>Zhongli District, Taoyuan City, Taiwan</p>
-            <p>Business Registration: 72881398</p>
+            <p data-en="Zhongli District, Taoyuan City, Taiwan" data-tl="Distrito ng Zhongli, Lungsod ng Taoyuan, Taiwan">Zhongli District, Taoyuan City, Taiwan</p>
+            <p data-en="Business Registration: 72881398" data-tl="Rehistrasyon ng Negosyo: 72881398">Business Registration: 72881398</p>
             <div class="divider"></div>
-            <p>&copy; 2024 Now & Wow Closet. All rights reserved.</p>
+            <p data-en="&copy; 2024 Now &amp; Wow Closet. All rights reserved." data-tl="&copy; 2024 Now &amp; Wow Closet. Lahat ng karapatan ay nakalaan.">&copy; 2024 Now & Wow Closet. All rights reserved.</p>
         </div>
     </footer>
 
     <script>
+        // ===== LANGUAGE TOGGLE =====
+        let currentLang = localStorage.getItem('nwc-lang') || 'en';
+
+        function setLang(lang) {
+            currentLang = lang;
+            localStorage.setItem('nwc-lang', lang);
+            document.documentElement.lang = lang === 'tl' ? 'tl' : 'en';
+
+            // Update all elements with data-en / data-tl attributes
+            document.querySelectorAll('[data-en][data-tl]').forEach(el => {
+                const text = el.getAttribute('data-' + lang);
+                if (text) {
+                    el.innerHTML = text;
+                }
+            });
+
+            // Update page title
+            if (lang === 'tl') {
+                document.title = 'Now & Wow Closet — Istilo na Walang Kahirap-hirap, Kaginhawaan sa Araw-araw';
+            } else {
+                document.title = 'Now & Wow Closet — Effortless Style, Everyday Comfort';
+            }
+
+            // Update toggle button display
+            document.querySelectorAll('.lang-toggle').forEach(btn => {
+                if (lang === 'tl') {
+                    btn.innerHTML = 'EN | <span class="active-lang">TL</span>';
+                } else {
+                    btn.innerHTML = '<span class="active-lang">EN</span> | TL';
+                }
+            });
+        }
+
+        function toggleLang() {
+            setLang(currentLang === 'en' ? 'tl' : 'en');
+        }
+
+        // Apply saved language on load
+        if (currentLang !== 'en') {
+            setLang(currentLang);
+        }
+
+        // ===== NAVIGATION =====
         // Navigation scroll effect
         const nav = document.getElementById('nav');
         window.addEventListener('scroll', () => {
